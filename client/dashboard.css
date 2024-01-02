@@ -1,0 +1,28 @@
+body {
+	background-color : LightGrey;
+	font-family: sans-serif;
+}
+td { 
+	text-align: center;
+}
+#lhtable {
+	border: 1px solid black;
+	background-color: PowderBlue;
+}
+#linktable {
+	border: 1px solid black;
+	background-color: Lime;
+}
+#lhtable caption , #linktable caption {
+	font-weight : bold;
+	font-size : 2em;
+	color : white;
+	background-color : black;
+}
+
+#linktable {
+	width: 100%;
+}
+#lhtable {
+	width: 100%;
+}
