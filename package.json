@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "circular-buffer": "^1.0.3",
+    "configparser": "^0.3.10",
+    "express": "^4.18.2",
+    "express-ws": "^5.0.2",
+    "ini": "^4.1.1",
+    "jquery": "^3.7.1",
+    "line-reader": "^0.4.0",
+    "socket.io": "^4.7.2",
+    "tail-file": "^1.4.16"
+  },
+  "name": "bundashboard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "John Hays, K7VE",
+  "license": "GPL V3",
+  "description": "D-STAR Dashboard for dstargateway by F4FXL"
+}
