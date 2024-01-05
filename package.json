@@ -7,10 +7,11 @@
     "ini": "^4.1.1",
     "jquery": "^3.7.1",
     "line-reader": "^0.4.0",
+    "loader.js": "^4.7.0",
     "socket.io": "^4.7.2",
     "tail-file": "^1.4.16"
   },
-  "name": "bundashboard",
+  "name": "dsgwdashboard",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -19,5 +20,5 @@
   "keywords": [],
   "author": "John Hays, K7VE",
   "license": "GPL V3",
-  "description": "D-STAR Dashboard for dstargateway by F4FXL"
+  "description": "D-STAR Dashboard for the dstargateway by F4FXL"
 }
