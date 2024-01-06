@@ -29,6 +29,16 @@ socket.addEventListener("links", data => {
 	});
 });
 
+socket.addEventListener("repeaters", data => {
+	$("#repeaters").empty();
+	$("#repeaters").append("<table id=\"rptrtable\"><caption>Repeaters</caption>");
+	$("#rptrtable").append("<tr><th>Callsign</th><th>Frequency</th><th>Offset</th></tr>");
+	$.each(data, function(index,val){
+		$("#rptrtable").append("<tr><td>" + val.callsign + "</td><td>" + val.frequency + 
+			" Mhz.</td><td>" + val.offset + " Mhz.</td></tr>");
+	});
+});
+
 socket.addEventListener("lastheard", data => {
 //	console.log("lastheard " + data);
 	$("#lastheard").empty();
