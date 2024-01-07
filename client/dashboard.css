@@ -17,7 +17,7 @@ td , caption , th {
 	border: 1px solid black;
 	background-color: Lime;
 }
-#lhtable caption , #linktable caption , #repeaters caption {
+#lhtable caption , #linktable caption , #rptrtable caption {
 	font-weight : bold;
 	font-size : 2em;
 	color : white;
@@ -25,6 +25,6 @@ td , caption , th {
 	width : 100%;
 }
 
-#linktable , #lhtable , #repeaters {
+#linktable , #lhtable , #rptrtable {
 	width: 100%;
 }

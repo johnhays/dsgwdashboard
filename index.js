@@ -66,7 +66,8 @@ function buildrepeaters(){
 			}
 			callsign += " " + rptr.band;
 			repeaterlist.push({'callsign':callsign,'frequency':rptr.frequency,
-				'offset':rptr.offset,'type':rptr.type});
+				'offset':rptr.offset,'type':rptr.type,'description1' :rptr.description1,
+				'description2':rptr.description2,'latitude':rptr.latitude, 'longitude': rptr.longitude});
 		}
 	}
 
