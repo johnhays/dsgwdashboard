@@ -27,6 +27,8 @@ linklist.push({'timestamp':'0000-00-00 00:00:00' , 'protocol': 'none' , 'device'
 
 updatelinks();
 
+let serverPort = inifile.config.port;
+
 const server = https
 	.createServer(
 		{
@@ -35,8 +37,8 @@ const server = https
 		},
 		app
 	)
-	.listen(443, ()=>{
-			console.log('server is running at port 443')
+	.listen(serverPort, ()=>{
+			console.log('server is running at port ' + serverPort)
 	});
 
 app.get('/', (req,res)=>{
