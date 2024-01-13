@@ -5,6 +5,13 @@ body {
 td , caption , th { 
 	text-align: center;
 }
+#info {
+	float: left;
+}
+#source {
+	float: right;
+	text-align: right;
+}
 #lhtable {
 	border: 1px solid black;
 	background-color: PowderBlue;
