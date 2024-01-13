@@ -8,7 +8,7 @@ socket.addEventListener("info", indata => {
 //	console.log(indata);
 	const data = JSON.parse(indata);
 	$("#instruct").empty();
-	$("#instruct").append("<table id=\"urltable\"><caption>Helpful URLs</caption>");
+	$("#instruct").append("<table id=\"urltable\"><caption>Helpful Sites</caption>");
 	$("#urltable").append("<tr><th>Sponsor</th><th>Live</th><th>Utilities</th></tr>");
 	$("#urltable").append("<tr><td><a target=\"sponsor\" href=\"" + data.sponsor + "\">" +
 		data.sponsorname + "</a></td><td><a target=\"live\" href=\"" + data.live_1 + "\">" +
@@ -61,10 +61,14 @@ socket.addEventListener("lastheard", data => {
 	$("#lhtable").append("<tr><th>MYcall</th><th>URcall</th><th>Rpt1</th><th>Rpt2</th><th>Source</th><th>Date</th><th>Time</th></tr>");
 	$.each(data, function(index,val){
 		// console.log(index, val);
-		var mcall = val.mycall;
+		var mcall = "<a href=\"https://qrz.com/db/" + val.mycall + "\" target=\"qrz\">" + val.mycall + "</a>";
 		if (val.msg1 != "") mcall += " / " + val.msg1;
+		var rpt1 = val.rpt1.substring(0,7).trim();
+		if (rpt1.substring(0,3) == "REF") rpt1 = "<a href=\"http://" + rpt1 + ".dstargateway.org\" target=\"reflector\">" + val.rpt1 + "</a>";
+		var rpt2 = val.rpt2.substring(0,7).trim();
+		if (rpt2.substring(0,3) == "REF") rpt2 = "<a href=\"http://" + rpt2 + ".dstargateway.org\" target=\"reflector\">" + val.rpt2 + "</a>";
 		$("#lhtable").append("<tr><td>" + mcall + "</td><td>"+ val.urcall + 
-			"</td><td>" + val.rpt1 + "</td><td>" + val.rpt2 + 
+			"</td><td>" + rpt1 + "</td><td>" + rpt2 + 
 			"</td><td>" + val.source + "</td><td>" + val.date + "</td><td>" + val.time + "</td></tr>");
 	})
 });
