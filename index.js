@@ -20,6 +20,9 @@ const dgwconfig = ini.parse(fs.readFileSync(inifile.config.dgwconfig, 'utf-8'));
 const app = express();
 const buf = new CircularBuffer(heardqueue);
 const linklist = new CircularBuffer(linkqueue);
+
+const urls = inifile.urls;
+
 var repeaterlist = [];
 
 linklist.push({'timestamp':'0000-00-00 00:00:00' , 'protocol': 'none' , 'device':'none',
@@ -50,10 +53,7 @@ app.use(express.static(path.resolve(__dirname, 'client')));
 const io = socketio(server);
 
 function senddata(dest,data,socket) {
-	//console.log("Enter Senddata -> " + dest);
 	socket.emit(dest,data);
-	// console.log(dest,JSON.stringify(data));
-	// console.log("Leave Senddata -> " + dest);
 }
 
 
@@ -72,22 +72,15 @@ function buildrepeaters(){
 				'description2':rptr.description2,'latitude':rptr.latitude, 'longitude': rptr.longitude});
 		}
 	}
-
-//	console.log(JSON.stringify(repeaterlist));
-
 }
 
 function updatelinks() {
-	// console.log("Entering updatelinks");
 	const linksregex = /(.*) (.*) (.*) - Type: (.*) Rptr: (.*) Refl: (.*) Dir: (.*)/;
 	const linkfile = fs.readFileSync(links).toString();
 	const lines = linkfile.split(/\n|\r\n/);
-	// console.log("Queue Size in: " + linklist.size());
 	while (linklist.size() > 0) {
 		linklist.deq();
 	}; 
-	// console.log("Queue Size out: " + linklist.size());
-	// console.log("File Length: " + lines.length);
 	let i = 0;
 	while (i < lines.length) {
 		if(lines[i] != "") {
@@ -99,9 +92,6 @@ function updatelinks() {
 		}
 		i++;
 	}
-//	console.log("From updatelinks() " + JSON.stringify(linklist.toarray()));
-//	senddata("links",linklist.toarray(),io);
-	// console.log("Leaving updatelinks");
 }
 
 
@@ -109,6 +99,7 @@ function updatelinks() {
 io.on('connection', (socket) => {
 	// console.log('WS New connection');
 	buildrepeaters();
+	senddata("info",JSON.stringify(urls),socket);
 	senddata("lastheard",buf.toarray(),socket);
 	senddata("links",linklist.toarray(),socket);
 	senddata("title",host + " Dashboard",socket);
@@ -116,29 +107,20 @@ io.on('connection', (socket) => {
 	// console.log("leaving connection");
 });
 
-// io.on('message', (socket) => {
-//	console.log('New Message' + JSON.stringify(socket))
-//});
-
 fs.watch(headers, (curr, prev)=>{
-	// console.log(headers + ' file changed');
-//	console.log("from fs.watch headers " + JSON.stringify(buf.toarray()));
 	senddata("lastheard",buf.toarray(),io);
 });
 
 fs.watch(links, (curr, prev)=>{
-	// console.log(links + ' file changed');
-//	console.log("from fs.watch links " + JSON.stringify(linklist.toarray())); 
 	updatelinks();
-	// console.log("from fs.watch links " + JSON.stringify(linklist.toarray())); 
 	senddata("links",linklist.toarray(),io);
-	// console.log("Leaving links watch");
 });
+
+
 
 const tailheaders = new Tail(headers, {startPos : 'end'}, line => {
 	const headerregex = /(.*) (.*) header.*My: (.*)  Your: (.*) *Rpt1: (.*) *Rpt2: (.*) Flags.*\((.*)\)/;
 	const groups = line.match(headerregex);
-//	console.log(JSON.stringify(groups));
 	if (groups) {
 		var ipport = groups[7].split(':');
 		var my = groups[3].split('/');
@@ -149,7 +131,6 @@ const tailheaders = new Tail(headers, {startPos : 'end'}, line => {
 			'srcip':ipport[0],'srcport':ipport[1]};
 		buf.push(record);
 		senddata("lastheard",buf.toarray(),io);
-//		console.log(JSON.stringify(record));
 	}
 });
 

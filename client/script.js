@@ -4,13 +4,24 @@ socket.addEventListener("connect", () => {
   socket.emit("Hello from script.js");
 });
 
-socket.addEventListener("message", data => {
-	console.log(data[0]);
-	$("#intro").text(data);
+socket.addEventListener("info", indata => {
+//	console.log(indata);
+	const data = JSON.parse(indata);
+	$("#instruct").empty();
+	$("#instruct").append("<table id=\"urltable\"><caption>Helpful URLs</caption>");
+	$("#urltable").append("<tr><th>Sponsor</th><th>Live</th><th>Utilities</th></tr>");
+	$("#urltable").append("<tr><td><a target=\"sponsor\" href=\"" + data.sponsor + "\">" +
+		data.sponsorname + "</a></td><td><a target=\"live\" href=\"" + data.live_1 + "\">" +
+		data.livename_1 + "</a></td><td><a target=\"register\" href=\"" + data.registration +
+		"\">" + data.registersite + "</a></td></tr>");
+	$("#urltable").append("<tr><td><a target=\"sponsor\" href=\"" + data.cosponsor + "\">" +
+		data.cosponsorname + "</a></td><td><a target=\"live\" href=\"" + data.live_2 + "\">" +
+		data.livename_2 + "</a></td><td></td></tr>");
+
 });
 
 socket.addEventListener("title", data => {
-	console.log(data);
+//	console.log(data);
 	$("title").text(data);
 	$("#intro").text(data);
 });

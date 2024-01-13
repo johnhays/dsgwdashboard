@@ -9,15 +9,19 @@ td , caption , th {
 	border: 1px solid black;
 	background-color: PowderBlue;
 }
-#repeaters {
+#rptrtable {
 	border: 1px solid black;
 	background-color: Yellow;
+}
+#urltable {
+	border: 1px solid black;
+	background-color: White;
 }
 #linktable {
 	border: 1px solid black;
 	background-color: Lime;
 }
-#lhtable caption , #linktable caption , #rptrtable caption {
+#lhtable caption , #linktable caption , #rptrtable caption , #urltable caption{
 	font-weight : bold;
 	font-size : 2em;
 	color : white;
@@ -25,6 +29,6 @@ td , caption , th {
 	width : 100%;
 }
 
-#linktable , #lhtable , #rptrtable {
+#linktable , #lhtable , #rptrtable , #urltable {
 	width: 100%;
 }
