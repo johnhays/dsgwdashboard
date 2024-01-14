@@ -33,7 +33,9 @@ socket.addEventListener("links", data => {
 	$("#linktable").append("<tr><th>Repeater</th><th>Reflector</th><th>Protocol</th>" +
 			"<th>Device</th><th>Direction</th><th>Timestamp</th></tr>");
 	$.each(data, function(index,val){
-		$("#linktable").append("<tr><td>" + val.repeater + "</td><td>" + val.reflector + 
+		var reflector = val.reflector.substring(0,7).trim();
+		if (reflector.substring(0,3) == "REF") reflector = "<a href=\"http://" + reflector + ".dstargateway.org\" target=\"reflector\">" + val.reflector + "</a>";
+		$("#linktable").append("<tr><td>" + val.repeater + "</td><td>" + reflector + 
 			"</td><td>" + val.protocol + "</td><td>" + val.device + "</td><td>" +
 			val.direction + "</td><td>" + val.timestamp + "</td></tr>");
 		// console.log(index, val);

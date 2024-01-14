@@ -11,7 +11,7 @@ You will need to have a domain name for the site and current certificates tied t
 **key.pem** and **cert.pem**
 in the same directory as index.js. I suggest using (Certbot)[https://certbot.eff.org/] to obtain free signed certificates that all major browsers recognize
 as legitimate.  I typically run Apache2 or another webserver to allow Certbot to authenticate the site to create the certificates. The certificates will 
-typically reside in /etc/live/**your domain name** and I simply soft link (ls -s) them from the dsgwdashboard directory.  You can disable the webserver, 
+typically reside in /etc/live/**your domain name** and I simply soft link (ln -s) them from the dsgwdashboard directory.  You can disable the webserver, 
 such as Apache2 or NGNIX once you have the certificates.
 
 Before starting up the dsgwdashboard you will want to have DStarGateway running, to prepopulate the log files.  Your first task
