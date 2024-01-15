@@ -66,9 +66,17 @@ socket.addEventListener("lastheard", data => {
 		var mcall = "<a href=\"https://qrz.com/db/" + val.mycall + "\" target=\"qrz\">" + val.mycall + "</a>";
 		if (val.msg1 != "") mcall += " / " + val.msg1;
 		var rpt1 = val.rpt1.substring(0,7).trim();
-		if (rpt1.substring(0,3) == "REF") rpt1 = "<a href=\"http://" + rpt1 + ".dstargateway.org\" target=\"reflector\">" + val.rpt1 + "</a>";
+		if (rpt1.substring(0,3) == "REF") { 
+			rpt1 = "<a href=\"http://" + rpt1 + ".dstargateway.org\" target=\"reflector\">" + val.rpt1 + "</a>"}
+		else {
+			rpt1 = val.rpt1
+		}
 		var rpt2 = val.rpt2.substring(0,7).trim();
-		if (rpt2.substring(0,3) == "REF") rpt2 = "<a href=\"http://" + rpt2 + ".dstargateway.org\" target=\"reflector\">" + val.rpt2 + "</a>";
+		if (rpt2.substring(0,3) == "REF") {
+			rpt2 = "<a href=\"http://" + rpt2 + ".dstargateway.org\" target=\"reflector\">" + val.rpt2 + "</a>" }
+		else {
+			rpt2 = val.rpt2
+		}
 		$("#lhtable").append("<tr><td>" + mcall + "</td><td>"+ val.urcall + 
 			"</td><td>" + rpt1 + "</td><td>" + rpt2 + 
 			"</td><td>" + val.source + "</td><td>" + val.date + "</td><td>" + val.time + "</td></tr>");
