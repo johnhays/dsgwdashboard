@@ -108,7 +108,7 @@ io.on('connection', (socket) => {
 });
 
 fs.watch(headers, (curr, prev)=>{
-	senddata("lastheard",buf.toarray(),io);
+	senddata("lastheard",buf.toarray().reverse(),io);
 });
 
 fs.watch(links, (curr, prev)=>{
@@ -130,7 +130,7 @@ const tailheaders = new Tail(headers, {startPos : 'end'}, line => {
 			'urcall':groups[4].trim(),'rpt1':groups[5].trim(),'rpt2':groups[6].trim(),
 			'srcip':ipport[0],'srcport':ipport[1]};
 		buf.push(record);
-		senddata("lastheard",buf.toarray(),io);
+		senddata("lastheard",buf.toarray().reverse(),io);
 	}
 });
 
