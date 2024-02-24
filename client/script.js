@@ -50,11 +50,23 @@ socket.addEventListener("repeaters", data => {
 	$("#rptrtable").append("<tr><th>Callsign</th><th>Frequency</th><th>Offset</th><th>Description</th>" +
 		"<th>Location</th></tr>");
 	$.each(data, function(index,val){
-		$("#rptrtable").append("<tr><td>" + val.callsign + "</td><td>" + val.frequency + 
-			" Mhz.</td><td>" + val.offset + " Mhz.</td><td>" + val.description1 + " - " +
+		$("#rptrtable").append("<tr><td>" + 
+			val.callsign + 
+			"</td><td>" + 
+			val.frequency + 
+			" Mhz.</td><td>" + 
+			val.offset + 
+			" Mhz.</td><td>" + 
+			val.description1 + 
+			" - " +
 			val.description2 + 
-			"</td><td><a target=\"location\" href=\"https://aprs.fi/#!mt=roadmap&z=11&call=a%2F" +
-			val.callsign + "\">" + val.latitude + " " + val.longitude + "</a></td></tr>");
+			"</td><td><a title=\"" +
+			val.latitude +
+			" " + 
+			val.longitude + 
+			"\" target=\"location\" href=\"https://aprs.fi/#!mt=roadmap&z=11&call=a%2F" +
+			val.callsign +
+			"\" >aprs.fi</a></td></tr>");
 	});
 });
 
