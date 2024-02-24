@@ -86,7 +86,7 @@ function updatelinks() {
 		if(lines[i] != "") {
 			var mylinks = lines[i].match(linksregex);
 			// console.log(JSON.stringify(lines[i]));
-			var linkrec = {'timestamp':mylinks[1].substr(0,19) , 'protocol':mylinks[2] , 'device':mylinks[4],
+			var linkrec = {'timestamp':mylinks[1].substr(0,19)+'Z' , 'protocol':mylinks[2] , 'device':mylinks[4],
 				'repeater':mylinks[5] , 'reflector':mylinks[6] , 'direction' : mylinks[7] };
 			linklist.push(linkrec);
 		}
