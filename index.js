@@ -8,7 +8,7 @@ const path = require('path');
 const Tail = require('tail-file');
 const CircularBuffer = require("circular-buffer");
 
-const inifile = ini.parse(fs.readFileSync('./dashboard.ini', 'utf-8'));
+const inifile = ini.parse(fs.readFileSync('/usr/local/etc/dashboard.ini', 'utf-8'));
 const host = inifile.config.host;
 const port = inifile.config.port;
 const links = inifile.logs.links;

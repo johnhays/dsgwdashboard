@@ -14,6 +14,8 @@ as legitimate.  I typically run Apache2 or another webserver to allow Certbot to
 typically reside in /etc/live/**your domain name** and I simply soft link (ln -s) them from the dsgwdashboard directory.  You can disable the webserver, 
 such as Apache2 or NGNIX once you have the certificates.
 
+**Edit util/dashboard.ini and copy to /usr/local/etc/dashboard.ini**
+
 Before starting up the dsgwdashboard you will want to have DStarGateway running, to prepopulate the log files.  Your first task
 will be to edit dashboard.ini to put in your hostname and to ensure file paths match your install of DStarGateway.  The dashboard parses those log files
 in realtime to update the dashboard.
