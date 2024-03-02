@@ -18,13 +18,6 @@ ln -s /etc/letsencrypt/live/**your domain name**/cert.pem cert.pen
 ln -s /etc/letsencrypt/live/**your domain name**/privkey.pem key.pen
 ```
 
-<<<<<<< HEAD
-**Edit util/dashboard.ini and copy to /usr/local/etc/dashboard.ini**
-
-Before starting up the dsgwdashboard you will want to have DStarGateway running, to prepopulate the log files.  Your first task
-will be to edit dashboard.ini to put in your hostname and to ensure file paths match your install of DStarGateway.  The dashboard parses those log files
-in realtime to update the dashboard.
-=======
 Before starting up the dsgwdashboard you will want to have DStarGateway running, to **prepopulate** the log files. Alternatively, if your gateway isn't
 ready:
 ```
@@ -33,7 +26,6 @@ sudo touch /var/log/dstargateway/Links.log
 sudo chown dstar:dstar /var/log/dsgateway/Headers.log
 sudo chown dstar:dstar /var/log/dsgateway/Links.log
 ```
->>>>>>> f6a46a59847e9c923b6ab03fb8af2352d5ddac7d
 
 Your first task will be to edit [util/dashboard.ini](util/dashboard.ini) to put in your hostname and to ensure file paths match your install of DStarGateway.  The dashboard parses those log files in realtime to update the dashboard. Then copy the file to /usr/local/etc
 ```
