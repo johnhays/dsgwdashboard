@@ -9,7 +9,7 @@ Installing this will require some familiarity with Linux/Unix command line and s
 
 You will need to have a domain name for the site and current certificates tied to that domain. The index.js file, which defines the HTTPS server, is looking for 
 **key.pem** and **cert.pem** in the same directory as index.js. 
-I suggest using [Certbot](https://certbot.eff.org/) to obtain free signed certificates that all major browsers recognize
+If you don't have the certs, then use [Certbot](https://certbot.eff.org/) to obtain free signed certificates that all major browsers recognize
 as legitimate.  Use the --standalone flag or run Apache with plugin. The certificates will 
 typically reside in /etc/letsencrypt/live/**your domain name**/ (replace **your domain name** with your actual domain name) 
 and simply soft link (ln -s) them from the dsgwdashboard directory:  
@@ -32,11 +32,10 @@ Your first task will be to edit [util/dashboard.ini](util/dashboard.ini) to put 
 sudo cp util/dashboard.ini /usr/local/etc
 ```
 
-This dashboard runs under a current version of NodeJS.  Your distribution may install an older version, so use the methods documented at (nodesource)[https://github.com/nodesource/distributions]. Make sure 
+This dashboard runs under a current version of NodeJS.  Your distribution may install an older version, so use the methods documented at [nodesource](https://github.com/nodesource/distributions). Make sure returns the version you installed.
 ```
 node -v
 ```
-returns the version you installed.
 
 Your next task is to install the modules used with the command 
 ```
