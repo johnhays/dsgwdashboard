@@ -2,8 +2,7 @@
 
 This is a realtime Dashboard for F4FXL's [DStarGateway](https://github.com/F4FXL/DStarGateway)
 
-It is written in JavaScript.  The server side is a NodeJS application using the Express framework that runs over HTTPS and uses secure WebSockets (WSS) to
-pass data over the Internet to the web browser. WSS requires encryption which is why it is implemented with that feature.
+It is written in JavaScript.  The server side is a [NodeJS](https://nodejs.org/) application using the [Express](https://expressjs.com/) framework and runs over [HTTPS](https://wikipedia.org/wiki/HTTPS) using secure [WebSockets (WSS)](https://javascript.info/websocket) to pass data over the Internet to the web browser. WSS requires encryption which is why it is implemented using HTTPS.
 
 Installing this will require some familiarity with Linux/Unix command line and system.
 
