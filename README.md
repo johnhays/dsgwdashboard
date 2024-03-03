@@ -32,7 +32,7 @@ Your first task will be to edit [util/dashboard.ini](util/dashboard.ini) to put 
 sudo cp util/dashboard.ini /usr/local/etc
 ```
 
-This dashboard runs under a current version of NodeJS.  Your distribution may install an older version, so use the methods documented at [nodesource](https://github.com/nodesource/distributions). Make sure returns the version you installed.
+This dashboard runs under a current version of NodeJS.  Your distribution may install an older version, so use the methods documented at [nodesource](https://github.com/nodesource/distributions). Make sure it returns the version you installed.
 ```
 node -v
 ```
@@ -51,13 +51,13 @@ Kill this with **^C** before running it as service.
 
 It should also run under the newer/faster [Bun Runtime](https://bun.sh/)
 
-If it comes up successfully, go to a browser put in a HTTPS request to your domain name.  If you get a dashboard, you have done everything correctly.
+If it comes up successfully, go to a browser and put in a HTTPS request to your domain name.  If you get a dashboard, you have done everything correctly.
 
 I have included a systemd service file in the util subdirectory which can be copied to /lib/systemd/system 
 ```
 sudo cp util/dsgwdashboard.service /lib/systemd/system
 ```
-and managed with the **systemctl** commands:
+and manage it with the **systemctl** commands:
 ```
 sudo systemctl status dsgwdashboard
 sudo systemctl enable dsgwdashboard
