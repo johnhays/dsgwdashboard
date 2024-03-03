@@ -9,7 +9,7 @@ Installing this will require some familiarity with Linux/Unix command line and s
 
 You will need to have a domain name for the site and current certificates tied to that domain. The index.js file, which defines the HTTPS server, is looking for 
 **key.pem** and **cert.pem** in the same directory as index.js. 
-If you don't have the certs, then use [Certbot](https://certbot.eff.org/) to obtain free signed certificates that all major browsers recognize
+If you don't have the certs, use [Certbot](https://certbot.eff.org/) to obtain free signed certificates that all major browsers recognize
 as legitimate.  Use the --standalone flag or run Apache with plugin. The certificates will 
 typically reside in /etc/letsencrypt/live/**your domain name**/ (replace **your domain name** with your actual domain name) 
 and simply soft link (ln -s) them from the dsgwdashboard directory:  
