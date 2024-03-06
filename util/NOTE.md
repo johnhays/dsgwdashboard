@@ -17,6 +17,7 @@ The program **systemctl** is how your manage these services (as root using sudo)
 **disable** - turning off automatic startup when reboot<br/>
 
 for example:
+
 ** sudo systemctl status dsgwdashboard<br/>
  sudo systemctl enable dsgwdashboard<br/>
  sudo systemctl start dsgwdashboard<br/>
@@ -29,7 +30,7 @@ for example:
  sudo systemctl start dgwtimeserver<br/>
  sudo systemctl stop dgwtimeserver<br/>
  sudo systemctl restart dgwtimeserver<br/>
- sudo systemctl disable dgwtimeserver<br/> **
+ sudo systemctl disable dgwtimeserver<br/>**
 
 and so forth.
 
