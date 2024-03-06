@@ -1,11 +1,11 @@
 
 
-I have localized all of the configuration files in **/usr/local/etc:
+I have localized all of the configuration files in **/usr/local/etc**:
 
 **dashboard.ini**  - configuration for the dashboard (with some values also take from dstargateway.cfg)<br/>
 **dgwremotecontrol.cfg**  - configure remote control port and password<br/>
 **dgwtimeserver.cfg** - this controls time announcements and other parameters<br/>
-**dstargateway.cfg** - configure the gateway itself**<br/>
+**dstargateway.cfg** - configure the gateway itself<br/>
 
 The program **systemctl** is how your manage these services (as root using sudo) there are five functions which you will typically control
 
@@ -17,8 +17,7 @@ The program **systemctl** is how your manage these services (as root using sudo)
 **disable** - turning off automatic startup when reboot<br/>
 
 for example:
-**
- sudo systemctl status dsgwdashboard<br/>
+** sudo systemctl status dsgwdashboard<br/>
  sudo systemctl enable dsgwdashboard<br/>
  sudo systemctl start dsgwdashboard<br/>
  sudo systemctl stop dsgwdashboard<br/>
@@ -30,8 +29,7 @@ for example:
  sudo systemctl start dgwtimeserver<br/>
  sudo systemctl stop dgwtimeserver<br/>
  sudo systemctl restart dgwtimeserver<br/>
- sudo systemctl disable dgwtimeserver<br/>
-**
+ sudo systemctl disable dgwtimeserver<br/> **
 
 and so forth.
 
