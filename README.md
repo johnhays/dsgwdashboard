@@ -63,6 +63,24 @@ sudo systemctl enable dsgwdashboard
 sudo systemctl start dsgwdashboard
 ```
 
+Please read [note](util/NOTE.md) for some additional operational detail.
+
+Some routine maintenance can be automated by copying [reloadhosts](util/reloadhosts) into */usr/local/bin*
+```
+cp util/reloadhosts /usr/local/bin
+```
+then modify your crontab
+```
+sudo crontab -e
+```
+and adding the lines
+```
+0 0 * * * : > /var/log/dstargateway/Headers.log
+0 0 * * * /usr/local/bin/reloadhosts
+```
+
+What this does is, at midnight every night, it truncates the /var/log/dstargateway/Headers.log, which will grow very long overtime and slow down the initial population of the dashboard.  Then reloadhosts, will pull down current updated files for  reflectors and their associated addresses, and restart the gateway so that the new addresses are cached.
+
 This program is still under development, but you are welcome to try it out. Consider it alpha code and refresh it periodically by going into the dsgwdashboard directory and
 ```
 git status
