@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+cd /usr/local/src/DStarGateway
+sudo make newhostfiles
+sudo systemctl restart dstargateway.service
