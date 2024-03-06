@@ -18,7 +18,7 @@ The program **systemctl** is how your manage these services (as root using sudo)
 
 for example:
 
-** sudo systemctl status dsgwdashboard<br/>
+ **sudo systemctl status dsgwdashboard<br/>
  sudo systemctl enable dsgwdashboard<br/>
  sudo systemctl start dsgwdashboard<br/>
  sudo systemctl stop dsgwdashboard<br/>
@@ -30,7 +30,7 @@ for example:
  sudo systemctl start dgwtimeserver<br/>
  sudo systemctl stop dgwtimeserver<br/>
  sudo systemctl restart dgwtimeserver<br/>
- sudo systemctl disable dgwtimeserver<br/>**
+ sudo systemctl disable dgwtimeserver**
 
 and so forth.
 
