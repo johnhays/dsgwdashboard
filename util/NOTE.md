@@ -37,4 +37,4 @@ and so forth.
 To view the systemctl manual - type<br/>
 **man systemctl**
 
-Also spend some time with [DStarGateway README](https://github.com/F4FXL/DStarGateway/README.md) (and the README.md in each subdirectory)
+Also spend some time with [DStarGateway README](https://github.com/F4FXL/DStarGateway/blob/develop/README.md) (and the README.md in each subdirectory)
