@@ -63,7 +63,7 @@ sudo systemctl enable dsgwdashboard
 sudo systemctl start dsgwdashboard
 ```
 
-Please read [note](util/NOTE.md) for some additional operational detail.
+Please read this [note](util/NOTE.md) for some additional operational detail.
 
 Some routine maintenance can be automated by copying [reloadhosts](util/reloadhosts) into */usr/local/bin*
 ```
