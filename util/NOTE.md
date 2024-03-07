@@ -1,4 +1,4 @@
-#Configuration and Management
+# Configuration and Management
 
 I have localized all of the configuration files in **/usr/local/etc**:
 
@@ -39,7 +39,7 @@ To view the systemctl manual - type<br/>
 
 Also spend some time with [DStarGateway README](https://github.com/F4FXL/DStarGateway/blob/develop/README.md) (and the README.md in each subdirectory)
 
-#Firewall
+# Firewall
 
 If using [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) [dstar](dstar) rules are aavailable. 
 ```
