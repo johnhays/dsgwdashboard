@@ -12,6 +12,8 @@ const inifile = ini.parse(fs.readFileSync('/usr/local/etc/dashboard.ini', 'utf-8
 const host = inifile.config.host;
 const port = inifile.config.port;
 const links = inifile.logs.links;
+const redirecthttp = inifile.config.redirecthttp;
+const httpport = inifile.config.httpport;
 const linkqueue = parseInt(inifile.params.linkqueue);
 const heardqueue = parseInt(inifile.params.heardqueue);
 const headers = inifile.logs.headers;
@@ -135,7 +137,8 @@ const tailheaders = new Tail(headers, {startPos : 'end'}, line => {
 });
 
 tailheaders.start();
-// Comment out the following lines if you don't want to redirect http to https
+// See dashboard.ini in /usr/local/etc
+if (redirecthttp){
 var http = require("http");
 
 http
@@ -143,4 +146,5 @@ http
 		res.writeHead(301, { Location: "https:"+host });
 		res.end();
 	})
-	.listen(80);
+	.listen(httpport);
+}
