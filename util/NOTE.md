@@ -41,7 +41,7 @@ Also spend some time with [DStarGateway README](https://github.com/F4FXL/DStarGa
 
 # Firewall
 
-If using [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall) [dstar](dstar) rules are aavailable. 
+If using [ufw](https://wiki.ubuntu.com/UncomplicatedFirewall), [dstar](dstar) rules are aavailable. 
 ```
 cd util
 sudo cp dstar /etc/ufw/applications.d
