@@ -135,3 +135,12 @@ const tailheaders = new Tail(headers, {startPos : 'end'}, line => {
 });
 
 tailheaders.start();
+// Comment out the following lines if you don't want to redirect http to https
+var http = require("http");
+
+http
+	.createServer(function (req, res) {
+		res.writeHead(301, { Location: "https:"+host });
+		res.end();
+	})
+	.listen(80);

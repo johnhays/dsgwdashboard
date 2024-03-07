@@ -52,6 +52,8 @@ It should also run under the newer/faster [Bun Runtime](https://bun.sh/)
 
 If it comes up successfully, go to a browser and put in a HTTPS request to your domain name.  If you get a dashboard, you have done everything correctly.
 
+The install will redirect http to https, if you don't want the redirect, see the end of [index.js](index.js)
+
 I have included a systemd service file in the util subdirectory which can be copied to /lib/systemd/system 
 ```
 sudo cp util/dsgwdashboard.service /lib/systemd/system
