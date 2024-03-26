@@ -36,7 +36,7 @@ socket.addEventListener("links", data => {
 	$.each(data, function(index,val){
 		const utcDate = new Date(val.timestamp);
 		var reflector = val.reflector.substring(0,8).trim();
-		if (reflector.substring(0,3) == "REF") reflector = "<a href=\"http://" + reflector + ".dstargateway.org\" target=\"reflector\">" + val.reflector + "</a>";
+		if (reflector.substring(0,3) == "REF") reflector = "<a href=\"http://" + reflector.substring(0,6).trim() + ".dstargateway.org\" target=\"reflector\">" + val.reflector + "</a>";
 		$("#linktable").append("<tr><td>" + val.repeater + "</td><td>" + reflector + 
 			"</td><td>" + val.protocol + "</td><td>" + val.device + "</td><td>" +
 			val.direction + "</td><td>" + utcDate.toLocaleString() + "</td></tr>");
